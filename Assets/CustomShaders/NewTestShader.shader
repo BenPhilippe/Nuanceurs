@@ -1,21 +1,17 @@
 ﻿Shader "Test/NewTestShader"
 {
-	Properties
-	{
+	Properties{
 		_Color("Color", Color) = (1, 1, 1, 1)
 		_MainTex("Texture", 2D) = "white" {}
 		_NoiseTex("Noise", 2D) = "white" {}
 	}
-	SubShader
-	{
+	SubShader{
 
-		Tags
-		{
+		Tags{
 			"Queue" = "Transparent"
 		}
 
-		Pass
-		{
+		Pass{
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
@@ -46,8 +42,14 @@
 				return OUT;
 			}
 
-			fixed4 frag(v2f IN) : SV_TARGET{
-				return tex2D(_MainTex, IN.uv);
+			float4 frag(v2f IN) : SV_TARGET{
+				float4 outColor = tex2D(_MainTex, IN.uv);
+				
+				// choosing what will be transparent
+				//if(noise < (1.0f - gradient.r) * _GradientThreshold) col.a=1;
+				//else col.a=0;
+
+				return outColor;
 			}
 
 			ENDCG
