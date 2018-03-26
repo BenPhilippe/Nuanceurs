@@ -22,6 +22,7 @@
 
 			#include "UnityCG.cginc"
 
+			// Properties
 			sampler2D _MainTex;
 			float4 _Color;
 			sampler2D _NoiseTex;
@@ -38,11 +39,15 @@
 
 			v2f vert(appdata IN){
 				v2f OUT;
+				// vertex in local object space -> rendering camera space
+				OUT.position = UnityObjectToClipPos(IN.vertex);
+				OUT.uv = IN.uv;
 
 				return OUT;
 			}
 
 			fixed4 frag(v2f IN) : SV_TARGET{
+				return tex2D(_MainTex, IN.uv);
 			}
 
 			ENDCG
