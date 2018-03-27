@@ -1,9 +1,10 @@
 ﻿Shader "Test/NewTestShader"
 {
 	Properties{
-		_Color("Color", Color) = (1, 1, 1, 1)
-		_MainTex("Texture", 2D) = "white" {}
-		_NoiseTex("Noise", 2D) = "white" {}
+		_Color("Main Color", Color) = (1, 1, 1, 1)
+		_MainTex("Main Texture", 2D) = "white" {}
+		_NoiseTex("Noise Texture", 2D) = "white" {}
+		_DissolveCutoff("Dissolve Cutoff", Range(0, 1)) = 1
 	}
 	SubShader{
 
@@ -19,9 +20,10 @@
 			#include "UnityCG.cginc"
 
 			// Properties
-			sampler2D _MainTex;
 			float4 _Color;
+			sampler2D _MainTex;
 			sampler2D _NoiseTex;
+			float _DissolveCutoff;
 
 			struct appdata{
 				float4 vertex : POSITION;
@@ -35,8 +37,7 @@
 
 			v2f vert(appdata IN){
 				v2f OUT;
-				// vertex in local object space -> rendering camera space
-				OUT.position = UnityObjectToClipPos(IN.vertex);
+				OUT.position = UnityObjectToClipPos(IN.vertex);	//Rasterisation
 				OUT.uv = IN.uv;
 
 				return OUT;
@@ -44,10 +45,8 @@
 
 			float4 frag(v2f IN) : SV_TARGET{
 				float4 outColor = tex2D(_MainTex, IN.uv);
-				
-				// choosing what will be transparent
-				//if(noise < (1.0f - gradient.r) * _GradientThreshold) col.a=1;
-				//else col.a=0;
+				float4 dissolveColor = tex2D(_NoiseTex, IN.uv);
+				clip(dissolveColor.rgb - _DissolveCutoff);	//Check if value < 0, if so draw nothing
 
 				return outColor;
 			}
