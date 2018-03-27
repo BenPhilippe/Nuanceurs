@@ -1,4 +1,4 @@
-﻿Shader "Test/NewTestShader"
+﻿Shader "Test/Dissolve"
 {
 	Properties{
 		_Color("Main Color", Color) = (1, 1, 1, 1)
