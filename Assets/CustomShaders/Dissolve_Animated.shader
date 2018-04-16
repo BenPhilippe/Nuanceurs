@@ -14,6 +14,7 @@
 		Tags{
 			"Queue" = "Transparent"
 		}
+		LOD 200
 
 		Pass{
 
