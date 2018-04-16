@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: TestMaterial
-  m_Shader: {fileID: 4800000, guid: d7064c0094354894bba5a5b00931b6dd, type: 3}
+  m_Name: FlamesTest001
+  m_Shader: {fileID: 4800000, guid: f908cb19f69ffc149b81c8dd331c0beb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
