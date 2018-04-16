@@ -53,17 +53,15 @@
 			}
 
 			fixed4 frag(v2f IN) : SV_TARGET{
-				half4 col = tex2D(_MainTex, IN.uv) * _Tint;
+				half4 col = tex2D(_MainTex, IN.uv)* _Tint;
                 half depth = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UNITY_PROJ_COORD(IN.scrPos)));
 				half4 foamLine = 1 - saturate(_Foam * (depth - IN.scrPos.w));
 				col += foamLine * _Tint;
 				
 				return col;
 			}
-
 			ENDCG
-			
 		}
-
 	}
+    Fallback "Diffuse"
 }

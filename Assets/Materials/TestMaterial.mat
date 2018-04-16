@@ -63,7 +63,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: d51ec1740b43c02458e1fcd063b6d136, type: 3}
+        m_Texture: {fileID: 2800000, guid: eb7df199d7079b843a9f55ca07a538d2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
@@ -104,14 +104,14 @@ Material:
     - _Edge: 1
     - _EdgeWidth: 1
     - _ExtrudeAmount: 0.1
-    - _Foam: 0.5
-    - _Frequency: 1
+    - _Foam: 1
+    - _Frequency: 0.8
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _GradientThreshold: 1.12
     - _Hard: 30
-    - _Height: 0.1
+    - _Height: 0.11
     - _Metallic: 0
     - _Mode: 0
     - _NoiseScale: 1
@@ -146,7 +146,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _RimColor2: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _Tint: {r: 1, g: 1, b: 1, a: 0.5019608}
+    - _Tint: {r: 1, g: 0, b: 0, a: 0.172}
     - _TintA: {r: 1, g: 0.8482759, b: 0, a: 1}
     - _TintB: {r: 1, g: 0.80689657, b: 0, a: 1}
     - _UVOffset: {r: 1, g: 1, b: 1, a: 1}
